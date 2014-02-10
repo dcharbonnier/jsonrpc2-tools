@@ -1,1 +1,1 @@
-module.exports = process.env.COVERAGE ? require('./lib-cov/') : require('./lib/');
+module.exports = process.env.COVERAGE === 'jsonrpc2-tool-cov' ? require('./lib-cov/') : require('./lib/');

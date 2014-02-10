@@ -16,7 +16,7 @@ ifndef CI
 endif
 
 test-cov: clean lib-cov
-	@COVERAGE=1 $(MAKE) test REPORTER=html-cov > coverage.html
+	@COVERAGE="jsonrpc2-tool-cov" $(MAKE) test REPORTER=html-cov > coverage.html
 
 lib-cov:
 	@./node_modules/.bin/jscoverage lib lib-cov
