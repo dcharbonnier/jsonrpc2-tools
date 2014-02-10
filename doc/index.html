@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/metro-bootstrap.min.css">
+  <script src="js/jquery/jquery.min.js"></script>
+  <script src="js/jquery/jquery.widget.min.js"></script>
+  <script src="js/jquery/jquery.jsonrpc.js"></script>
+  <script src="js/metro/metro.min.js"></script>
+  <link href="js/prettify/prettify.css" rel="stylesheet">
+  <script src="js/runtime.js"></script>
+  <script src="js/prettify/prettify.js"></script>
+  <script src="jade/template.js"></script>
+  <style>
+    body {
+      margin-top: 20px;
+      background-color: #F5F5F5;
+    }
+    .accordion {
+      margin-bottom: 8px;
+    }
+    #content {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+    .metro .accordion>.accordion-frame>.heading {
+      padding-left: 70px;
+    }
+    .heading>span.fg-white {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      width: 60px;
+      text-align: center;
+      line-height: 40px;
+    }
+  </style>
+</head>
+<body class="metro">
+<div id="content">
+
+</div>
+<script>
+  $(function () {
+
+    $.jsonRPC.setup({endPoint: "http://localhost:8000/"});
+    $.jsonRPC.request('server.documentation', {
+      params: [],
+      success: function (response) {
+        $('#content').html(template(response.result));
+        $('.accordion').accordion({
+          closeAny: false, //true or false. if true other frames (when current opened) will be closed
+        });
+        window.prettyPrint && prettyPrint();
+      }
+    });
+
+
+  });
+</script>
+</body>
+</html>
