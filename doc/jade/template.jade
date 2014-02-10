@@ -1,0 +1,65 @@
+for method in methods
+  case method.mode
+    when 1
+      - framecolor = "darkCyan"
+      - backgroundcolor = "lightBlue"
+      - label = "READ"
+    when 2
+      - framecolor = "olive"
+      - backgroundcolor = "darkGreen"
+      - label = "WRITE"
+    when 3
+      - framecolor = "darkBrown"
+      - backgroundcolor = "darkOrange"
+      - label = "UPDATE"
+    when 4
+      - framecolor = "darkRed"
+      - backgroundcolor = "crimson"
+      - label = "DELETE"
+    when 5
+      - framecolor = "darkOrange"
+      - backgroundcolor = "lightOrange"
+      - label = "NOTIFY"
+    default
+      - framecolor = "darker"
+      - backgroundcolor = "dark"
+      - label = "?"
+
+  div.accordion
+    div(class="accordion-frame")
+      a(class="heading fg-white bg-darker")
+        span(class="fg-white bg-#{ backgroundcolor }")= label
+        =method.name
+
+        if method.desc
+          span.place-right= method.desc
+      .content.bg-white
+
+        h4  Arguments
+        if method.arguments
+          table.table.hovered
+            thead
+              tr
+                th.text-left Name
+                th.text-left Type
+                th.text-left Required
+                th.text-left Default
+                th.text-left Description
+            tbody
+              for argument in method.arguments
+                tr
+                  td= argument.name
+                  td= argument.type
+                  td
+                    if argument.required
+                      i.icon-checkmark
+                  td= argument.default
+                  td= argument.desc
+        else
+          p No arguments
+        if method.return
+          h4 Return
+          code= method.return
+        if method.example
+          h4 Example
+          pre.prettyprint= method.example
