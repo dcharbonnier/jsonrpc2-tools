@@ -1,0 +1,24 @@
+{
+  "name"           : "jsonrpc2-tools",
+  "description"    : "",
+  "version"        : "0.0.1",
+  "private"        : false,
+  "dependencies"   : {
+    "async"    : "0.2.9",
+    "request"  : "2.30.0",
+    "json-rpc2": "0.4.3"
+  },
+  "engines"        : {
+    "node": ">= 0.10.24 < 0.10.25"
+  },
+  "scripts"        : {
+    "test": "make jshint && make test"
+  },
+  "devDependencies": {
+    "mocha"     : "1.16.x",
+    "should"    : "2.1.x",
+    "jscoverage": "0.3.8",
+    "jshint"    : "2.4.3",
+    "plato"     : "0.6.2"
+  }
+}
