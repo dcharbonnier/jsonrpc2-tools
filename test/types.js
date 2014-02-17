@@ -207,4 +207,30 @@ describe('Test rpc types', function () {
     }).should.throw();
     done();
   });
+  it('Object should return description', function (done) {
+    var b = new rpc.types.Object({desc: 'rr'});
+    should(b.typeDesc()).equal('Object');
+    done();
+  });
+  it('Object should not raise error if value is correct', function (done) {
+    var b = new rpc.types.Object({
+      name: 'test'
+    });
+    (function () {
+      b.check({});
+    }).should.not.throw();
+    done();
+  });
+  it('Object should raise error if value is incorrect', function (done) {
+    var b = new rpc.types.Object({
+      name: 'test'
+    });
+    (function () {
+      b.check('xxxx');
+    }).should.throw();
+    (function () {
+      b.check(1);
+    }).should.throw();
+    done();
+  });
 });
