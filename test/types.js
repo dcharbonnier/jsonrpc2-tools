@@ -233,4 +233,38 @@ describe('Test rpc types', function () {
     }).should.throw();
     done();
   });
+
+  it('Multiple should not raise error if value is correct', function (done) {
+    var b = new rpc.types.Multiple({
+      name: 'test',
+      type: [rpc.types.String, rpc.types.Object]
+    });
+    (function () {
+      b.check('xxxx');
+    }).should.not.throw();
+    (function () {
+      b.check({a:'xxxx'});
+    }).should.not.throw();
+    done();
+  });
+  it('Multiple should raise error if value is incorrect', function (done) {
+    var b = new rpc.types.Multiple({
+      name: 'test',
+      type: [rpc.types.String, rpc.types.Object]
+    });
+    (function () {
+      b.check(true);
+    }).should.throw();
+    done();
+  });
+  it('Multiple should return description', function (done) {
+    var b =new rpc.types.Multiple({
+      name: 'test',
+      desc: 'description',
+      type: [rpc.types.String, rpc.types.Object]
+    });
+    should(b.typeDesc()).equal('[String, Object]');
+    done();
+  });
+
 });
