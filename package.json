@@ -6,7 +6,7 @@
   "dependencies"   : {
     "async"    : "0.2.9",
     "request"  : "2.30.0",
-    "json-rpc2": "0.4.3"
+    "json-rpc2": "0.4.4"
   },
   "engines"        : {
     "node": ">= 0.10.24 < 0.10.25"
