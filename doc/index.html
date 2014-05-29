@@ -49,7 +49,7 @@
       success: function (response) {
         $('#content').html(template(response.result));
         $('.accordion').accordion({
-          closeAny: false, //true or false. if true other frames (when current opened) will be closed
+          closeAny: false //true or false. if true other frames (when current opened) will be closed
         });
         window.prettyPrint && prettyPrint();
       }
