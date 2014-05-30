@@ -9,7 +9,7 @@
     "json-rpc2": "0.5.0"
   },
   "engines"        : {
-    "node": ">= 0.10.24 < 0.10.25"
+    "node": ">= 0.10.24 < 0.10.28"
   },
   "scripts"        : {
     "test": "make jshint && make test"
