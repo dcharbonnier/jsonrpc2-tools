@@ -28,16 +28,17 @@ describe('Test rpc types', function () {
     });
 
     (function () {
-      b.check();
-    }).should.not.throw().and.equal(true);
+      b.check().should.equal(true);
+
+    }).should.not.throw();
 
     b = new rpc.types.Boolean({
       name   : 'test',
       default: false
     });
     (function () {
-      b.check();
-    }).should.not.throw().and.equal(false);
+      b.check().should.equal(false);
+    }).should.not.throw();
     done();
   });
   it('Boolean raise error if value is invalid', function (done) {
@@ -230,6 +231,39 @@ describe('Test rpc types', function () {
     }).should.throw();
     (function () {
       b.check(1);
+    }).should.throw();
+    done();
+  });
+
+  it('Array should return description', function (done) {
+    var b = new rpc.types.Array({desc: 'rr'});
+    should(b.typeDesc()).equal('Array');
+    done();
+  });
+  it('Array should not raise error if value is correct', function (done) {
+    var b = new rpc.types.Array({
+      name: 'test'
+    });
+    (function () {
+      b.check([]);
+    }).should.not.throw();
+    (function () {
+      b.check([1,'a']);
+    }).should.not.throw();
+    done();
+  });
+  it('Array should raise error if value is incorrect', function (done) {
+    var b = new rpc.types.Array({
+       name: 'test'
+    });
+    (function () {
+      b.check('xxxx');
+    }).should.throw();
+    (function () {
+      b.check(1);
+    }).should.throw();
+    (function () {
+      b.check({});
     }).should.throw();
     done();
   });

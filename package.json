@@ -1,24 +1,25 @@
 {
   "name"           : "jsonrpc2-tools",
   "description"    : "Documentation, middlewares and type control for json-rpc2",
-  "version"        : "0.0.4",
+  "repository"     : "https://github.com/dcharbonnier/jsonrpc2-tools",
+  "version"        : "0.1.0",
   "private"        : false,
   "dependencies"   : {
-    "async"    : "0.2.9",
-    "request"  : "2.30.0",
-    "json-rpc2": "0.5.0"
+    "async"    : "0.9.0",
+    "request"  : "2.45.0",
+    "json-rpc2": "0.8.1"
   },
   "engines"        : {
-    "node": ">= 0.10.24 < 0.10.28"
+    "node": ">= 0.10.24 < 0.10.32"
   },
   "scripts"        : {
     "test": "make jshint && make test"
   },
   "devDependencies": {
-    "mocha"     : "1.16.x",
-    "should"    : "2.1.x",
-    "jscoverage": "0.3.8",
-    "jshint"    : "2.4.3",
-    "plato"     : "0.6.2"
+    "mocha"     : "1.21.x",
+    "should"    : "4.1.x",
+    "jscoverage": "0.5.x",
+    "jshint"    : "2.5.x",
+    "plato"     : "1.1.x"
   }
 }
