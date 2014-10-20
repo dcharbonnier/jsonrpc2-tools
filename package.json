@@ -1,6 +1,7 @@
 {
   "name"           : "jsonrpc2-tools",
   "description"    : "Documentation, middlewares and type control for json-rpc2",
+  "repository"     : "https://github.com/dcharbonnier/jsonrpc2-tools",
   "version"        : "0.0.4",
   "private"        : false,
   "dependencies"   : {
