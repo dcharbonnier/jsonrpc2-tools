@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "mocha"     : "1.21.x",
-    "should"    : "2.1.x",
+    "should"    : "4.1.x",
     "jscoverage": "0.5.x",
     "jshint"    : "2.5.x",
     "plato"     : "1.1.x"

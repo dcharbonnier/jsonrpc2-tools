@@ -28,16 +28,17 @@ describe('Test rpc types', function () {
     });
 
     (function () {
-      b.check();
-    }).should.not.throw().and.equal(true);
+      b.check().should.equal(true);
+
+    }).should.not.throw();
 
     b = new rpc.types.Boolean({
       name   : 'test',
       default: false
     });
     (function () {
-      b.check();
-    }).should.not.throw().and.equal(false);
+      b.check().should.equal(false);
+    }).should.not.throw();
     done();
   });
   it('Boolean raise error if value is invalid', function (done) {
